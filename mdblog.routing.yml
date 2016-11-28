@@ -1,0 +1,7 @@
+mdblog.configroute:
+  path: '/admin/config/custom/mdblog'
+  defaults:
+    _form: 'Drupal\mdblog\Form\SettingsForm'
+    _title: 'Markdown Blogging Configuration'
+  requirements:
+    _permission: 'administer site configuration'

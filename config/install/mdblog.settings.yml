@@ -1,0 +1,4 @@
+mdblog:
+   cmdline: 'kramdown'
+   stdin: true
+   styledoc: '/css/markdown.css'

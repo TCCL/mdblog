@@ -1,0 +1,10 @@
+name: 'Markdown Blogs'
+description: 'Enables blogs generated from Markdown'
+package: Custom
+type: module
+version: 0.0
+core: 8.x
+dependencies:
+  - node
+  - field
+configure: mdblog.configroute

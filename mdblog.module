@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Enables blogs generated from Markdown.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function mdblog_help($path,$arg) {
+    if ($path == 'admin/help#mdblog') {
+        $message = '<p>These blogs are generated from Markdown sources to HTML</p>';
+        return "<h3>Markdown Blogs</h3>$message";
+    }
+}

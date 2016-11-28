@@ -1,0 +1,58 @@
+uuid: 9a14a5fb-9c11-4ca4-9e81-86c2fce3ea3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.mdblog_post.markdown_post
+    - node.type.mdblog_post
+  module:
+    - mdblog
+    - path
+id: node.mdblog_post.default
+targetEntityType: node
+bundle: mdblog_post
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+  markdown_post:
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+    type: MarkdownDefaultWidget
+  path:
+    type: path
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

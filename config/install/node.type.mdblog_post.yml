@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - mdblog
+name: 'Markdown Blog Post'
+type: mdblog_post
+description: 'Used to store blog posts generated from Markdown.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

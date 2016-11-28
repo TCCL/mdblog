@@ -1,0 +1,25 @@
+uuid: 85666376-4999-4bf7-b1ae-ca44185e99a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.markdown_post
+    - node.type.mdblog_post
+  enforced:
+    module:
+      - mdblog
+id: node.mdblog_post.markdown_post
+field_name: markdown_post
+entity_type: node
+bundle: mdblog_post
+label: 'Markdown Post'
+description: 'Enter your blog post as markdown into the box.'
+required: false
+translatable: false
+default_value:
+  -
+    source: ''
+    result: null
+default_value_callback: ''
+settings: {  }
+field_type: markdown

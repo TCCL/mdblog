@@ -1,0 +1,19 @@
+uuid: f42cf172-ab5c-4732-8714-7c641b08487c
+langcode: en
+status: true
+dependencies:
+  module:
+    - mdblog
+    - node
+id: node.markdown_post
+field_name: markdown_post
+entity_type: node
+type: markdown
+settings: {  }
+module: mdblog
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

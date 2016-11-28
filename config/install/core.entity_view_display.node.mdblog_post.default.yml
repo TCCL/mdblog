@@ -1,0 +1,24 @@
+uuid: 3442e3f8-e4ce-44b8-9ffe-1950df3fad25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.mdblog_post.markdown_post
+    - node.type.mdblog_post
+  module:
+    - mdblog
+    - user
+id: node.mdblog_post.default
+targetEntityType: node
+bundle: mdblog_post
+mode: default
+content:
+  field_markdown_post:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: MarkdownDefaultFormatter
+  links:
+    weight: 100
+hidden: {  }
