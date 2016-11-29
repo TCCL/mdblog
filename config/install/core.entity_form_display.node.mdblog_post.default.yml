@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.mdblog_post.field_mdblog_category
     - field.field.node.mdblog_post.markdown_post
     - node.type.mdblog_post
   module:
@@ -17,12 +18,20 @@ content:
     type: datetime_timestamp
     weight: 10
     settings: {  }
+    third_party_settings: { }
+  field_mdblog_category:
+    type: entity_reference_autocomplete
+    weight: 31
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   markdown_post:
-    weight: 31
+    weight: 32
     settings: {  }
     third_party_settings: {  }
-    type: MarkdownDefaultWidget
+    type: markdown_markdownfield
   path:
     type: path
     weight: 30

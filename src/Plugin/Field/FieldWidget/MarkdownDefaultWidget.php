@@ -11,8 +11,8 @@ use Drupal\Core\Form\FormStateInterface;
  * Plugin implementation of the 'MarkdownDefaultWidget' widget.
  *
  * @FieldWidget(
- *   id = "MarkdownDefaultWidget",
- *   label = @Translation("Markdown entry"),
+ *   id = "markdown_markdownfield",
+ *   label = @Translation("Markdown entry field"),
  *   field_types = {
  *     "markdown"
  *   }
@@ -37,7 +37,7 @@ class MarkdownDefaultWidget extends WidgetBase {
             '#default_value' => isset($items[$delta]->source) ?
                 $items[$delta]->source : null,
             '#empty_value' => '',
-            '#placeholder' => t('Markdown'),
+            '#placeholder' => t('Markdown source goes here...'),
         );
 
         return $element;

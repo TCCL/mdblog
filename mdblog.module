@@ -5,6 +5,8 @@
  * Enables blogs generated from Markdown.
  */
 
+use Drupal\node\NodeInterface;
+
 /**
  * Implements hook_help().
  */
@@ -13,4 +15,71 @@ function mdblog_help($path,$arg) {
         $message = '<p>These blogs are generated from Markdown sources to HTML</p>';
         return "<h3>Markdown Blogs</h3>$message";
     }
+}
+
+/**
+ * This function converts Markdown to HTML based on the current mdblog module
+ * configuration.
+ *
+ * @param  string $src
+ *  The Markdown source markup
+ *
+ * @return string
+ *  The compiled HTML markup.
+ */
+function mdblog_compile_markdown($src) {
+    // We'll need the module's configuration in order to define how we call the
+    // external Markdown processor.
+    $config = Drupal::config('mdblog.settings');
+    $cmdline = $config->get('mdblog.cmdline');
+    $stdin = !empty($config->get('mdblog.stdin'));
+
+    // Modify command-line if needed.
+    if (!$stdin) {
+        $temp = tmpfile();
+        $name = stream_get_meta_data($temp)['uri'];
+        if (strpos($cmdline,'@file') !== false) {
+            $cmdline = str_replace($cmdline,$name,'@file');
+        }
+        else {
+            $cmdline .= " $name";
+        }
+        fwrite($temp,$src);
+    }
+
+    // Invoke the external command that *should* produce the Markdown output on
+    // its stdout.
+    $descriptors = array(
+        array('pipe','r'),
+        array('pipe','w'),
+    );
+    $proc = proc_open($cmdline,$descriptors,$pipes);
+    if (!is_resource($proc)) {
+        throw new Exception("Failed to run Markdown processor");
+    }
+    if ($stdin) {
+        if (fwrite($pipes[0],$src) === false) {
+            throw new Exception("Failed to write data to pipe");
+        }
+    }
+    fclose($pipes[0]);
+    $result = stream_get_contents($pipes[1]);
+    if (isset($temp)) {
+        fclose($temp);
+    }
+
+    return $result;
+}
+
+/**
+ * Implements hook_node_presave() to capture Markdown input and translate it
+ * into HTML output.
+ *
+ * @param  NodeInterface $node
+ *  An object representing the node to modify.
+ */
+function mdblog_node_presave(NodeInterface $node) {
+    // Grab the markdown source and compile it.
+    $post = $node->markdown_post;
+    $post->result = mdblog_compile_markdown($post->source);
 }

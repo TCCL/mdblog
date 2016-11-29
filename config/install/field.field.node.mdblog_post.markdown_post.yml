@@ -12,7 +12,7 @@ id: node.mdblog_post.markdown_post
 field_name: markdown_post
 entity_type: node
 bundle: mdblog_post
-label: 'Markdown Post'
+label: 'Blog Post'
 description: 'Enter your blog post as markdown into the box.'
 required: false
 translatable: false

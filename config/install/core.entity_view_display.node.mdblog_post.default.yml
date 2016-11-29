@@ -13,12 +13,22 @@ targetEntityType: node
 bundle: mdblog_post
 mode: default
 content:
-  field_markdown_post:
-    weight: 101
+  field_mdblog_category:
+    type: entity_reference_entity_view
+    weight: 2
     label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  markdown_post:
+    weight: 1
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: MarkdownDefaultFormatter
+    type: markdown_default
   links:
-    weight: 100
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

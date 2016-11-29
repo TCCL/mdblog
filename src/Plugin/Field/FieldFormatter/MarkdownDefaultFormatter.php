@@ -1,8 +1,12 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\mdblog\Plugin\Field\FieldFormatter\MarkdownDefaultFormatter.
+ */
+
 namespace Drupal\mdblog\Plugin\Field\FieldFormatter;
 
-use Drupal;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 
@@ -10,8 +14,8 @@ use Drupal\Core\Field\FormatterBase;
  * Plugin implementation of the 'MarkdownDefaultFormatter' formatter.
  *
  * @FieldFormatter(
- *   id = "MarkdownDefaultFormatter",
- *   label = @Translation("Markdown"),
+ *   id = "markdown_default",
+ *   label = @Translation("Default"),
  *   field_types = {
  *     "markdown"
  *   }
@@ -19,10 +23,9 @@ use Drupal\Core\Field\FormatterBase;
  */
 class MarkdownDefaultFormatter extends FormatterBase {
     /**
-     * Define how the field type is shown. We only display the result markup
-     * component of the field entry for presentation.
+     * {@inheritdoc}
      */
-    public function viewElements(FieldItemListInterface $item,$langcode) {
+    public function viewElements(FieldItemListInterface $items,$langcode) {
         $elements = array();
 
         foreach ($items as $delta => $item) {

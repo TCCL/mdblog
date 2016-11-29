@@ -20,7 +20,7 @@ class SettingsForm extends ConfigFormBase {
             '#type' => 'checkbox',
             '#title' => $this->t('Check if command receives markdown via its stdin. '
                                 . 'Otherwise a temporary file is created and appended '
-                                . 'to the command-line.'),
+                                . 'to the command-line or replaced from @file.'),
         );
         $form['styledoc'] = array(
             '#type' => 'textfield',
@@ -41,7 +41,7 @@ class SettingsForm extends ConfigFormBase {
 
     function submitForm(array &$form,FormStateInterface $form_state) {
         $config = $this->config('mdblog.settings');
-        foreach ($formState->getValues() as $key => $value) {
+        foreach ($form_state->getValues() as $key => $value) {
             $config->set("mdblog.$key",$value);
         }
         $config->save();

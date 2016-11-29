@@ -14,8 +14,8 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface as StorageDefinition;
  *   label = @Translation("Markdown"),
  *   description = @Translation("Stores an address."),
  *   category = @Translation("Custom"),
- *   default_widget = "MarkdownDefaultWidget",
- *   default_formatter = "MarkdownDefaultFormatter"
+ *   default_widget = "markdown_markdownfield",
+ *   default_formatter = "markdown_default"
  * )
  */
 class Markdown extends FieldItemBase {
