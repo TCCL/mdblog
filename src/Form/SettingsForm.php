@@ -22,9 +22,9 @@ class SettingsForm extends ConfigFormBase {
                                 . 'Otherwise a temporary file is created and appended '
                                 . 'to the command-line or replaced from @file.'),
         );
-        $form['styledoc'] = array(
+        $form['themetype'] = array(
             '#type' => 'textfield',
-            '#title' => $this->t('The URL to a CSS document to style the compiled Markdown.'),
+            '#title' => $this->t('The theme type to use to render the posts.'),
         );
 
         // Assign default values.
