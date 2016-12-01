@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.mdblog_post.markdown_post
+    - node.type.mdblog_post
+  module:
+    - mdblog
+    - user
+id: node.mdblog_post.teaser
+targetEntityType: node
+bundle: mdblog_post
+mode: teaser
+content:
+  field_mdblog_category:
+    type: entity_reference_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  markdown_post:
+    label: hidden
+    type: markdown_trimmed
+    weight: 2
+    settings:
+      trim_length: 500
+    third_party_settings: {  }
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

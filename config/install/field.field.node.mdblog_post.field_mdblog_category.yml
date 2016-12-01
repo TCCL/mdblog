@@ -9,9 +9,9 @@ id: node.mdblog_post.category
 field_name: field_mdblog_category
 entity_type: node
 bundle: mdblog_post
-label: category
-description: ''
-required: false
+label: Category
+description: 'A taxonomy term to organize the blog post'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

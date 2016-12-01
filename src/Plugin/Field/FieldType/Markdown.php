@@ -31,11 +31,11 @@ class Markdown extends FieldItemBase {
 
         $columns['source'] = array(
             'type' => 'text',
-            'length' => 131072,
+            'length' => 16777215,
         );
         $columns['result'] = array(
             'type' => 'text',
-            'length' => 131072,
+            'length' => 16777215,
         );
 
         return array(
