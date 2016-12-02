@@ -128,7 +128,7 @@ class MarkdownTrimmedFormatter extends FormatterBase {
 
         error_log($length);
         $trimmed = substr($markup,0,$offset);
-        if ($offset < strlen($markup)) {
+        if ($offset < strlen(trim($markup))) {
             $trimmed .= "<h1>...</h1>";
         }
         return $trimmed;
