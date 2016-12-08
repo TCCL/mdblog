@@ -38,6 +38,10 @@ class MarkdownDefaultWidget extends WidgetBase {
                 $items[$delta]->source : null,
             '#empty_value' => '',
             '#placeholder' => t('Markdown source goes here...'),
+            '#rows' => 25,
+            '#attributes' => array(
+                'style' => 'font-family: monospace; font-size: 12pt;',
+            )
         );
 
         return $element;

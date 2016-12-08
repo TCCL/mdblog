@@ -1,7 +1,12 @@
-mdblog - v0.0.0
+mdblog - v1.0.0
 --------------------------------------------------------------------------------
-
-This project is a Drupal 8 module that provides blogs written using Markdown.
+This project is a Drupal 8 module that provides blogs written using Markdown. It
+works using an external Markdown processor command (e.g. kramdown) to generate
+the HTML for the blog content node. Both the original Markdown source and the
+resulting HTML are stored in a custom node field type in parallel. It was
+created by Roger Gee at the Tulsa City-County Library as an educational
+exercise. This project is open-source software. You may use it without warranty
+or restrictions.
 
 Primary authors:
     Roger Gee <roger.gee@tulsalibrary.org>
@@ -9,3 +14,28 @@ Primary authors:
 Other authors:
 
 --------------------------------------------------------------------------------
+Installation
+
+Install the module in the normal way. Then configure settings in the module
+configuration in the Drupal modules admin pages (/admin/config/custom/mdblog).
+
+Settings to configure:
+
+    command-line:
+        This controls what command the functionality will use to convert the
+        markdown source. For example, if you have kramdown installed with the
+        rouge formatter available:
+
+        ruby --external-encoding UTF-8 -S kramdown --syntax-highlighter rouge
+
+    stdin:
+        Check the box for standard input if the command you specified receives
+        the markdown input via stdin. If this box is *not* checked, then a
+        temporary file is created and appended to the command-line. If the token
+        @file is found in the command then instead of appending the file name,
+        the token @file is replaced with the file name.
+
+    render theme type:
+        Provide a custom theme type used to render the blog posts. You may leave
+        this empty, but to provide a stylesheet you'll need to write a custom
+        module that provides a theme that attaches required libraries.
